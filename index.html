@@ -150,12 +150,12 @@
             empId: id.value,
             name: employees[id.value],
             type: type.value,
-            ip: userIP.value  // 🔑 Critical for IP validation
+            ip: userIP.value
           };
 
           try {
-            // 🚨 REPLACE WITH YOUR ACTUAL APPS SCRIPT URL
-            const res = await fetch('https://script.google.com/macros/s/AKfycbw9uZeEdMHV2jTktvjltSY9Lo_KqIXgu-DUCJjVldVR4v0Et5W8dZioKokufbqxlwmUww/exec', {
+            // ✅ Use Vercel proxy endpoint
+            const res = await fetch('/api/attendance', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(payload)
@@ -192,4 +192,3 @@
   </script>
 </body>
 </html>
-
